@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Oliveira Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-color: #0a0a0a;
+            color: white;
+        }
+        
+        .hero-gallery {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+        
+        .brand-logo {
+            height: 50px;
+        }
+        
+        .menu-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ff0000;
+            transition: width .3s;
+        }
+        
+        .menu-item:hover::after {
+            width: 100%;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background-color: #ff0000;
+            color: white;
+        }
+            
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-color: #0a0a0a;
+            color: white;
+        }
+        
+        .hero-contact {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1485291571153-e6ed5d68910d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+        }
+        
+        .brand-logo {
+            filter: brightness(0) invert(1);
+            height: 50px;
+        }
+        
+        .menu-item::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #ff0000;
+            transition: width .3s;
+        }
+        
+        .menu-item:hover::after {
+            width: 100%;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(255, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .form-input {
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #ff0000;
+            box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+        }
+        
+        .map-container {
+            height: 400px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <img class="brand-logo" src="https://via.placeholder.com/150x50?text=OLIVEIRA+MOTORS" alt="Oliveira Motors">
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="menu-item text-white px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="modelos.html" class="menu-item text-white px-3 py-2 text-sm font-medium">Modelos</a>
+                        <a href="sobre.html" class="menu-item text-white px-3 py-2 text-sm font-medium">Sobre</a>
+                        <a href="galeria.html" class="menu-item text-white px-3 py-2 text-sm font-medium">Galeria</a>
+                        <a href="contato.html" class="menu-item text-white px-3 py-2 text-sm font-medium">Contato</a>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                                 <a href="test-drive.html" class="inline-block relative overflow-hidden group bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-md text-sm md:text-base font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-900/30">
+    <span class="relative z-10 flex items-center justify-center gap-2">
+        AGENDE UM TEST DRIVE
+        <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+    </span>
+    <span class="absolute inset-0 bg-gradient-to-r from-red-700 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-0"></span>
+</a>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gallery relative flex items-center justify-center text-center">
+        <div class="px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">GALERIA <span class="text-red-600">OLIVEIRA MOTORS</span></h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Explore nossa coleção exclusiva de supercarros</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filters -->
+    <section class="py-12 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300" data-filter="all">
+                    TODOS
+                </button>
+                <button class="filter-btn bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300" data-filter="ferrari">
+                    FERRARI
+                </button>
+                <button class="filter-btn bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300" data-filter="lamborghini">
+                    LAMBORGHINI
+                </button>
+                <button class="filter-btn bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300" data-filter="mclaren">
+                    McLAREN
+                </button>
+                <button class="filter-btn bg-transparent border border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition duration-300" data-filter="eventos">
+                    EVENTOS
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="ferrari">
+                    <img src="https://images.unsplash.com/photo-1618843479313-40f4afdaf7e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Ferrari SF90 Stradale" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Ferrari SF90 Stradale</h3>
+                        <p class="text-gray-300 text-sm">Showroom São Paulo</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="lamborghini">
+                    <img src="https://images.unsplash.com/photo-1625602812206-5ec545cb1231?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Lamborghini Aventador SVJ" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Lamborghini Aventador SVJ</h3>
+                        <p class="text-gray-300 text-sm">Evento de Lançamento</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="mclaren">
+                    <img src="https://images.unsplash.com/photo-1621393832946-3a75a4fcdaf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="McLaren 720S" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">McLaren 720S</h3>
+                        <p class="text-gray-300 text-sm">Showroom Rio de Janeiro</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="eventos">
+                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Evento Exclusivo" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Evento VIP 2023</h3>
+                        <p class="text-gray-300 text-sm">Clientes Especiais</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="ferrari">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Ferrari 488 GTB" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Ferrari 488 GTB</h3>
+                        <p class="text-gray-300 text-sm">Test Drive Exclusivo</p>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="lamborghini">
+                    <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Lamborghini Huracán" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Lamborghini Huracán</h3>
+                        <p class="text-gray-300 text-sm">Showroom Brasília</p>
+                    </div>
+                </div>
+                
+                <!-- Item 7 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="eventos">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Evento de Carros" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Encontro de Clientes</h3>
+                        <p class="text-gray-300 text-sm">Edição 2023</p>
+                    </div>
+                </div>
+                
+                <!-- Item 8 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="mclaren">
+                    <img src="https://images.unsplash.com/photo-1621393832946-3a75a4fcdaf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="McLaren 720S" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">McLaren 720S</h3>
+                        <p class="text-gray-300 text-sm">Detalhes do Interior</p>
+                    </div>
+                </div>
+                
+                <!-- Item 9 -->
+                <div class="gallery-item rounded-lg overflow-hidden" data-category="ferrari">
+                    <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Ferrari F8 Tributo" class="w-full h-64 object-cover">
+                    <div class="gallery-caption">
+                        <h3 class="text-lg font-bold">Ferrari F8 Tributo</h3>
+                        <p class="text-gray-300 text-sm">Showroom Curitiba</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+     <footer class="bg-black py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img class="brand-logo mb-4" src="https://via.placeholder.com/150x50?text=OLIVEIRA+MOTORS" alt="Oliveira Motors">
+                    <p class="text-gray-400">A excelência automotiva redefinida. Descubra nossa coleção exclusiva de supercarros.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">LINKS RÁPIDOS</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="modelos.html" class="text-gray-400 hover:text-white transition">Modelos</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="galeria.html" class="text-gray-400 hover:text-white transition">Galeria</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-white transition">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">CONTATO</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-600"></i>
+                            <span>Av. das Nações Unidas, 12901 - São Paulo/SP</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-red-600"></i>
+                            <span>(11) 4000-2000</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-red-600"></i>
+                            <span>contato@oliveiramotors.com.br</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">REDES SOCIAIS</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-sm font-medium transition duration-300">
+                            AGENDE UM TEST DRIVE
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>© 2023 Oliveira Motors. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filtro da galeria
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove a classe active de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Adiciona a classe active apenas ao botão clicado
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
